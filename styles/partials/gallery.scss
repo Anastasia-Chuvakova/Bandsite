@@ -1,0 +1,57 @@
+// @import "partials/common";
+// @import "partials/mobile-styles";
+// @import "partials/tablet-styles";
+// @import "partials/desk-styles";
+@import "partials/fonts";
+@import "partials/_globalVariables";
+@import "partials/_mixins";
+
+//PHOTO-GALLERY SECTION
+
+.gallery__wrapper {
+  margin: 0;
+  background-color: $alabaster;
+  max-width: 100%;
+
+  @include tablet-breakpoint {
+    margin-bottom: 24px;
+  }
+  @include desktop-breakpoint {
+    padding: 0 130px 0 138px;
+  }
+}
+.gallery-title {
+  @include mobile-header;
+  margin: 32px 16px 24px 16px;
+  padding-top: 32px;
+  @include tablet-breakpoint {
+    @include tabdesk-header;
+  }
+  @include desktop-breakpoint {
+    margin: 0;
+    padding: 48px 0 52px 0;
+  }
+}
+.gallery-img__wrapper {
+  bottom: 16px;
+  max-width: 100%;
+  object-fit: contain;
+  margin: 0px 16px 0px 16px;
+  @include tablet-breakpoint {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+  }
+  img {
+    margin-bottom: 16px;
+    @include tablet-breakpoint {
+      width: calc(33.3% - 24px);
+      margin: 12px;
+    }
+  }
+  @include tablet-breakpoint {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
