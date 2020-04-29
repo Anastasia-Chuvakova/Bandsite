@@ -1,0 +1,101 @@
+@mixin mobile-breakpoint {
+  @media screen and (min-width: $mobile) {
+    @content;
+  }
+}
+@mixin tablet-breakpoint {
+  @media screen and (min-width: $tablet) {
+    @content;
+  }
+}
+@mixin desktop-breakpoint {
+  @media screen and (min-width: $desk) {
+    @content;
+  }
+}
+
+@mixin font-regular {
+  font-family: "Avenir Next Regular";
+}
+
+@mixin font-demi {
+  font-family: "Avenir Next Demi Bold";
+}
+
+@mixin font-bold {
+  font-family: "Avenir Next Bold";
+}
+@mixin mobile-header {
+  font-size: 24px;
+  line-height: 32px;
+  font-family: "Avenir Next Regular";
+}
+
+@mixin mobile-subheader {
+  font-size: 14px;
+  line-height: 22px;
+  font-weight: bold;
+  font-family: "Avenir Next Demi Bold";
+}
+
+@mixin mobile-paragraph {
+  font-size: 14px;
+  line-height: 18px;
+  font-family: "Avenir Next Demi Bold";
+}
+
+@mixin mobile-contacts {
+  font-size: 13px;
+  line-height: 18px;
+  font-family: "Avenir Next Regular";
+}
+
+@mixin tabdesk-hero-header {
+  font-size: 60px;
+  line-height: 68px;
+  font-family: "Avenir Next Bold";
+  font-weight: bold;
+}
+
+@mixin tabdesk-header {
+  font-size: 36px;
+  line-height: 44px;
+  font-family: "Avenir Next Bold";
+  font-weight: bold;
+}
+
+@mixin tabdesk-small-header {
+  font-size: 24px;
+  line-height: 32px;
+  font-family: "Avenir Next Regular";
+}
+
+@mixin tabdesk-subheader {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: bold;
+  font-family: "Avenir Next Demi Bold";
+}
+
+@mixin tabdesk-comments {
+  font-size: 14px;
+  line-height: 22px;
+  font-family: "Avenir Next Demi Bold";
+}
+
+@mixin tabdesk-contacts {
+  font-size: 14px;
+  line-height: 22px;
+  font-family: "Avenir Next Regular";
+}
+
+@mixin flex-centered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@mixin labels {
+  font-family: "Avenir Next Regular";
+  font-size: 12px;
+  line-height: 20px;
+}
