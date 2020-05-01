@@ -1,0 +1,144 @@
+// @import "partials/common";
+// @import "partials/mobile-styles";
+// @import "partials/tablet-styles";
+// @import "partials/desk-styles";
+@import "_fonts";
+@import "_globalVariables";
+@import "_mixins";
+
+//FOOTER SECTION
+
+.footer__wrapper {
+  background-color: $black;
+  color: white;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 30px;
+  @include tablet-breakpoint {
+    justify-content: space-evenly;
+  }
+  @include desktop-breakpoint {
+    padding: 0 130px 48px 130px;
+  }
+}
+.footer-social {
+  @include font-bold;
+  margin: 0px 16px 0;
+  display: flex;
+  flex-direction: column;
+  left: 9px;
+  padding: 25px 40px 20px 0;
+  @include tablet-breakpoint {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: auto;
+    margin: 0 24px 0 24px;
+    .footer-title {
+      @include tabdesk-header;
+      margin: 0;
+    }
+  }
+}
+
+.social-media {
+  margin-right: 40px;
+  display: flex;
+  justify-content: flex-start;
+  margin: 16px 0 0 0;
+  @include tablet-breakpoint {
+    margin-top: 0;
+    justify-content: space-evenly;
+    height: auto;
+    display: flex;
+    @include mobile-header;
+    padding-right: 20%;
+  }
+  @include desktop-breakpoint {
+    @include font-regular;
+    padding-right: 40%;
+    width: auto;
+  }
+}
+.small-logo {
+  margin-right: 24px;
+  @include tablet-breakpoint {
+    height: 50%;
+  }
+  @include desktop-breakpoint {
+    margin-right: 32px;
+  }
+}
+
+.footer-logo h3 {
+  display: none;
+  @include tablet-breakpoint {
+    color: $mercury;
+    display: flex;
+    @include tabdesk-small-header;
+    text-transform: uppercase;
+  }
+  @include desktop-breakpoint {
+    @include tabdesk-small-header;
+  }
+}
+
+.contact-info__copyright {
+  margin-left: 14px;
+  color: $silver;
+  @include tablet-breakpoint {
+    margin-left: 24px;
+    @include font-regular;
+    font-size: 13px;
+    line-height: 18px;
+  }
+}
+.contact-info__wrapper {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  width: 205px;
+  margin: 0 0 0 12px;
+  @include tablet-breakpoint {
+    justify-content: space-between;
+    margin: 0 24px;
+    flex-direction: row;
+    width: auto;
+    height: auto;
+  }
+  @include desktop-breakpoint {
+    justify-content: space-between;
+    padding-right: 27%;
+    width: auto;
+  }
+}
+.contact-names__wrapper {
+  @include mobile-paragraph;
+  @include tablet-breakpoint {
+    justify-content: space-evenly;
+    justify-content: row;
+    max-width: 224px;
+    height: auto;
+  }
+}
+
+.contacts__wrapper {
+  color: $silver;
+  @include mobile-paragraph;
+  @include tablet-breakpoint {
+    justify-content: space-evenly;
+    justify-content: row;
+    max-width: 224px;
+    height: auto;
+  }
+}
+.emails__wrapper {
+  color: $silver;
+  @include mobile-contacts;
+  @include tablet-breakpoint {
+    justify-content: row;
+    max-width: 224px;
+    height: auto;
+  }
+}

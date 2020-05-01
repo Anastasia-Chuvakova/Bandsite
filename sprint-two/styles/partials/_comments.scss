@@ -1,0 +1,66 @@
+@import "_fonts";
+@import "_globalVariables";
+@import "_mixins";
+
+// .comments {
+//   &__section {
+//     display: flex;
+
+//     &__title h2 {
+//       color: red;
+//     }
+//   }
+// }
+.comments__section {
+  display: flex;
+  margin: 0 130px 0 130px;
+
+  .comments__title {
+    display: flex;
+    color: red;
+    width: auto;
+  }
+
+  .comments__table {
+    display: flex;
+    // flex-direction: column;
+    justify-content: center;
+    width: 50%;
+    margin: auto;
+
+    .enter__table {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      margin: 0;
+
+      .comments-form {
+        &__name {
+          margin-top: 2rem;
+          display: flex;
+          flex-direction: column;
+        }
+        &__text {
+          padding: 0.625rem;
+        }
+
+        &__comment {
+          margin-left: 3rem;
+        }
+      }
+
+      // .img_main {
+      //   background-image: url(/assets/icons/SVG/Icon-facebook.svg);
+      //   object-fit: cover;
+      //   display: flex;
+      //   width: auto;
+      //   margin-bottom: 3rem;
+      //}
+    }
+  }
+}
+
+.default__comment {
+  width: auto;
+  margin: 0;
+}

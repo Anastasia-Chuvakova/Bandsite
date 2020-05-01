@@ -1,0 +1,12 @@
+{
+    "version": 3,
+    "mappings": "ACAA,UAAU;EACR,WAAW,EAAE,qBAAqB;EAClC,GAAG,EAAE,iEAAiE;;;AAGxE,UAAU;EACR,WAAW,EAAE,uBAAuB;EACpC,GAAG,EAAE,8DAA8D;;;AAGrE,UAAU;EACR,WAAW,EAAE,kBAAkB;EAC/B,GAAG,EAAE,8DAA8D;;;ADRrE,AAAA,iBAAiB,CAAC;EAChB,OAAO,EAAE,IAAI;CACd",
+    "sources": [
+        "comments.scss",
+        "_fonts.scss",
+        "_globalVariables.scss",
+        "_mixins.scss"
+    ],
+    "names": [],
+    "file": "comments.css"
+}

@@ -1,0 +1,105 @@
+@import "_fonts";
+@import "_globalVariables";
+@import "_mixins";
+
+//HERO SECTION
+
+.hero-section {
+  background-image: url(../assets/images/concert-1.jpg);
+  height: 183px;
+  width: 100%;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @include tablet-breakpoint {
+    height: 400px;
+  }
+  @include desktop-breakpoint {
+    height: 670px;
+    justify-content: left;
+  }
+}
+.hero-section__title {
+  color: $white;
+  display: flex;
+  align-items: center;
+  margin-top: 32px;
+  margin-bottom: 24px;
+  margin-left: 16px;
+  margin-right: 16px;
+  @include mobile-header;
+  @include tablet-breakpoint {
+    @include tabdesk-hero-header;
+    text-align: left;
+    margin-right: 30%;
+  }
+  @include desktop-breakpoint {
+    margin-left: 180px;
+    margin-right: 50%;
+  }
+}
+
+// Show page
+.show-hero__section {
+  background-image: url(/assets/images/showbackground.jfif);
+
+  height: 183px;
+  width: 100%;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  //justify-content: center;
+  @include tablet-breakpoint {
+    height: 400px;
+  }
+  @include desktop-breakpoint {
+    height: 670px;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.hero-iframe {
+  display: flex;
+}
+.show-hero__text {
+  display: flex;
+  flex-direction: column;
+}
+
+.show-title {
+  color: $white;
+  display: flex;
+  align-items: center;
+  margin-top: 32px;
+  margin-bottom: 24px;
+  margin-left: 16px;
+  margin-right: 16px;
+  @include mobile-paragraph;
+  @include tablet-breakpoint {
+    @include tabdesk-small-header;
+    text-align: left;
+    margin-right: 30%;
+  }
+  @include desktop-breakpoint {
+    margin-left: 180px;
+    margin-right: 50%;
+  }
+}
+.show-hero__theme {
+  width: 100%;
+  margin: 0;
+  color: $white;
+  @include mobile-paragraph;
+  @include tablet-breakpoint {
+    width: 100%;
+    justify-content: space-evenly;
+    @include tabdesk-header;
+  }
+  @include desktop-breakpoint {
+    justify-content: flex-start;
+  }
+}
