@@ -61,10 +61,14 @@
   font-size: 36px;
   line-height: 44px;
   font-family: "Avenir Next Bold";
-  font-weight: bold;
 }
 
 @mixin tabdesk-small-header {
+  font-size: 24px;
+  line-height: 32px;
+  font-family: "Avenir Next Bold";
+}
+@mixin tabdesk-logo {
   font-size: 24px;
   line-height: 32px;
   font-family: "Avenir Next Regular";

@@ -2,23 +2,22 @@
 @import "_globalVariables";
 @import "_mixins";
 
-// .comments {
-//   &__section {
-//     display: flex;
-
-//     &__title h2 {
-//       color: red;
-//     }
-//   }
-// }
 .comments__section {
   display: flex;
-  margin: 0 130px 0 130px;
+  @include tablet-breakpoint {
+    margin: 0 24px 0 24px;
+  }
+  @include desktop-breakpoint {
+    margin: 0 130px 0 130px;
+  }
 
   .comments__title {
     display: flex;
-    color: red;
+    color: $black;
     width: auto;
+    @include tablet-breakpoint {
+      @include tabdesk-small-header;
+    }
   }
 
   .comments__table {
@@ -35,10 +34,13 @@
       margin: 0;
 
       .comments-form {
+        list-style: none;
+        text-decoration: none;
         &__name {
           margin-top: 2rem;
           display: flex;
           flex-direction: column;
+          @include desktop-breakpoint;
         }
         &__text {
           padding: 0.625rem;
@@ -48,14 +50,21 @@
           margin-left: 3rem;
         }
       }
-
-      // .img_main {
-      //   background-image: url(/assets/icons/SVG/Icon-facebook.svg);
-      //   object-fit: cover;
-      //   display: flex;
-      //   width: auto;
-      //   margin-bottom: 3rem;
-      //}
+      .enter__table ul {
+        .comments-list {
+          list-style: none;
+        }
+      }
+      .comments-list {
+        list-style: none;
+      }
+      .list-message li {
+        list-style: none;
+        text-decoration: none;
+      }
+    }
+    .comments-list {
+      list-style: none;
     }
   }
 }

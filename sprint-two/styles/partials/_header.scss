@@ -59,7 +59,7 @@ img {
       @include mobile-header;
       @include tablet-breakpoint {
         margin: 40px 0 40px 24px;
-        @include tabdesk-small-header;
+        @include tabdesk-logo;
       }
       @include desktop-breakpoint {
         @include tabdesk-small-header;

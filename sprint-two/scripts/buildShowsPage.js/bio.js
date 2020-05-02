@@ -6,7 +6,7 @@ var info = [
 
   {
     id: 2,
-    image: "icon",
+    // image: "icon",
     name: "Micheal Lyons",
     date: new Date("2018-12-18"),
     comment:
@@ -14,7 +14,7 @@ var info = [
   },
   {
     id: 3,
-    image: "insert icon",
+    // image: "insert icon",
     name: "Gary Wong",
     date: new Date("2018-12-12"),
     comment:
@@ -22,7 +22,7 @@ var info = [
   },
   {
     id: 4,
-    image: "image",
+    // image: "image",
     name: "Theodore Duncan",
     date: new Date("2018-11-15"),
     comment:
@@ -52,29 +52,20 @@ function comments(data) {
   enterTable.classList.add("enter__table");
   commentsTable.appendChild(enterTable);
 
+  let userIconBox = document.createElement("div");
+  userIconBox.classList.add("user-icon__box");
+  enterTable.appendChild(userIconBox);
+
+  let userIconMain = document.createElement("img");
+  // let userIconMain.classList.add("user-icon__main");
+  userIconMain.setAttribute("src", "./assets/icons/userico.png");
+  userIconBox.appendChild(userIconMain);
+
   let commentsForm = document.getElementById("comments-form");
 
-  commentsForm.addEventListener("comment", handleFormComment);
+  commentsForm.addEventListener("submit", handleFormComment);
 
-  function handleFormComment(event) {
-    event.preventDefault();
-
-    var commentsNameVal = event.target.commentsName.value;
-    var commentsTextVal = event.target.commentsText.value;
-
-    products.push({
-      name: commentsNameVal,
-      comments: commentsTextVal,
-    });
-
-    listComments();
-  }
   enterTable.appendChild(commentsForm);
-
-  // let image = data[1].image;
-  // let imgMain = document.createElement("img");
-  // imgMain.classList.add("img_main");
-  // enterTable.appendChild(imgMain);
 
   let commentsList = document.createElement("ul");
   commentsList.classList.add("comments-list");
@@ -85,9 +76,9 @@ function comments(data) {
     listsTag.classList.add("list-message");
     commentsList.appendChild(listsTag);
 
-    let image = data[i].image;
+    //let image = data[i].image;
     let imageTag = document.createElement("img");
-    imageTag.setAttribute("src", "../../assets/icons/usericon-grey.png");
+    imageTag.setAttribute("src", "./assets/icons/usericon-grey.png");
     listsTag.appendChild(imageTag);
 
     let name = data[i].name;
@@ -105,29 +96,68 @@ function comments(data) {
     commentTag.textContent = comment;
     listsTag.appendChild(commentTag);
   }
+}
 
-  function formattedDate(date) {
-    const daysOfWeek = ["Sun", "Mon", "Tues", "Wed", "Thur", "Fri", "Sat"];
-    const months = [
-      "Jan",
-      "Feb",
-      "Mar",
-      "Apr",
-      "May",
-      "Jun",
-      "Jul",
-      "Aug",
-      "Sep",
-      "Oct",
-      "Nov",
-      "Dec",
-    ];
+function formattedDate(date) {
+  const daysOfWeek = ["Sun", "Mon", "Tues", "Wed", "Thur", "Fri", "Sat"];
+  const months = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
 
-    const formattedDate = `${daysOfWeek[date.getDay()]},
+  const formattedDate = `${daysOfWeek[date.getDay()]},
     ${months[date.getMonth()]},
     ${date.getFullYear()}`;
-    return formattedDate;
-  }
+  return formattedDate;
+}
+
+function handleFormComment(event) {
+  event.preventDefault();
+
+  var commentsNameVal = event.target.commentsName.value;
+  var commentsTextVal = event.target.commentsText.value;
+
+  info.push({
+    id: info.length + 1,
+    name: commentsNameVal,
+    date: new Date(),
+    comment: commentsTextVal,
+  });
+
+  let commentsList = document.querySelector(".comments-list");
+
+  let listsTag = document.createElement("li");
+  listsTag.classList.add("list-message");
+  commentsList.appendChild(listsTag);
+
+  let imageTag = document.createElement("img");
+  imageTag.setAttribute("src", "./assets/icons/usericon-grey.png");
+  listsTag.appendChild(imageTag);
+
+  let name = info[info.length - 1].name;
+  let nameTag = document.createElement("h3");
+  nameTag.textContent = name;
+  listsTag.appendChild(nameTag);
+
+  let date = info[info.length - 1].date;
+  let dateTag = document.createElement("time");
+  dateTag.textContent = formattedDate(info[info.length - 1].date);
+  listsTag.appendChild(dateTag);
+
+  let comment = info[info.length - 1].comment;
+  let commentTag = document.createElement("p");
+  commentTag.textContent = comment;
+  listsTag.appendChild(commentTag);
 }
 
 comments(info);

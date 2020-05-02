@@ -76,7 +76,7 @@
   @include tablet-breakpoint {
     color: $mercury;
     display: flex;
-    @include tabdesk-small-header;
+    @include tabdesk-logo;
     text-transform: uppercase;
   }
   @include desktop-breakpoint {

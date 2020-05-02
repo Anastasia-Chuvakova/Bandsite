@@ -57,16 +57,23 @@
     </div>
   </section>
   <section class="comments__section">
+    <!-- <div class="user-icon__main"><img src="assets/icons/userico.png" alt="user icon"></div> -->
     <form id="comments-form" class="comments-form">
       <input
         type="text"
-        id="your-name__input"
+        id="comments-name__input"
         class="comments-form__name"
-        placeholder="your name"
-        name="commentsName"/>                    
-      <textarea name="text" class="comments-form__text"
-      placeholder="type here"></textarea>
-      <button type="comment" class="comments-form__comment">comment</button>
+        placeholder="Your Name"
+        name="commentsName"/>  
+        <input
+        type="text"
+        id="comments-text__input"
+        class="comments-form__text"
+        placeholder="Type Here"
+        name="commentsText"/>                  
+<!--         
+      <textarea name="text" class="comments-form__text" placeholder="Type Here"></textarea> -->
+      <button id="comments-form__submit" type="submit" class="comments-form__comment">comment</button>
    </form>
   </section>
 </main>
