@@ -62,7 +62,7 @@ img {
         @include tabdesk-logo;
       }
       @include desktop-breakpoint {
-        @include tabdesk-small-header;
+        @include tabdesk-logo;
         text-transform: uppercase;
       }
     }

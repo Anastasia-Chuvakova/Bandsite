@@ -5,9 +5,9 @@ var concerts = [
   },
   {
     id: 2,
-    param1: "DATE",
-    param2: "VENUE",
-    param3: "LOCATION",
+    param1: "dates",
+    param2: "venue",
+    param3: "location",
   },
 
   {
@@ -56,11 +56,11 @@ var concerts = [
 ];
 
 function showTable(data) {
-  let showSection = document.querySelector(".shows__section");
+  let showsSection = document.querySelector(".shows__section");
 
   let showTitle = document.createElement("div");
   showTitle.classList.add("shows__title");
-  showSection.appendChild(showTitle);
+  showsSection.appendChild(showTitle);
   console.log(showTitle);
 
   let header = data[0].header;
@@ -71,8 +71,7 @@ function showTable(data) {
 
   let showTable = document.createElement("div");
   showTable.classList.add("shows__table");
-  console.log(showTable);
-  showSection.appendChild(showTable);
+  showsSection.appendChild(showTable);
 
   let paramTable = document.createElement("div");
   paramTable.classList.add("params");
@@ -94,30 +93,51 @@ function showTable(data) {
   paramTag3.textContent = param3;
   paramTable.appendChild(paramTag3);
 
-  let showInfoTable = document.createElement("div");
-  showInfoTable.classList.add("show__info");
-  showTable.appendChild(showInfoTable);
+  let showInfoWrapper = document.createElement("ul");
+  showInfoWrapper.classList.add("show-info__wrapper");
+  showTable.appendChild(showInfoWrapper);
 
   for (i = 2; i < data.length; i++) {
+    let showInfoLi = document.createElement("li");
+    showInfoLi.classList.add("show-info__list");
+    showInfoWrapper.appendChild(showInfoLi);
+
+    let showInfoDate = document.createElement("div");
+    showInfoDate.classList.add("show-info__date");
+    showInfoLi.appendChild(showInfoDate);
+
     let date = data[i].date;
     let dateTag = document.createElement("h2");
     dateTag.textContent = date;
-    showInfoTable.appendChild(dateTag);
+    showInfoDate.appendChild(dateTag);
+
+    let showInfoVenue = document.createElement("div");
+    showInfoVenue.classList.add("show-info__venue");
+    showInfoLi.appendChild(showInfoVenue);
 
     let venue = data[i].venue;
     let venueTag = document.createElement("h2");
     venueTag.textContent = venue;
-    showInfoTable.appendChild(venueTag);
+    showInfoVenue.appendChild(venueTag);
+
+    let showInfoLocation = document.createElement("div");
+    showInfoLocation.classList.add("show-info__location");
+    showInfoLi.appendChild(showInfoLocation);
 
     let location = data[i].location;
     let locationTag = document.createElement("h2");
     locationTag.textContent = location;
-    showInfoTable.appendChild(locationTag);
+    showInfoLocation.appendChild(locationTag);
+
+    let showInfoButton = document.createElement("div");
+    showInfoButton.classList.add("show-info__button");
+    showInfoLi.appendChild(showInfoButton);
 
     let button = data[i].button;
     let buttonTag = document.createElement("button");
+    buttonTag.classList.add("buy-btn");
     buttonTag.textContent = button;
-    showInfoTable.appendChild(buttonTag);
+    showInfoButton.appendChild(buttonTag);
   }
 }
 

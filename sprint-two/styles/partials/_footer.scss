@@ -35,6 +35,7 @@
     align-items: center;
     height: auto;
     margin: 0 24px 0 24px;
+
     .footer-title {
       @include tabdesk-header;
       margin: 0;
@@ -80,7 +81,7 @@
     text-transform: uppercase;
   }
   @include desktop-breakpoint {
-    @include tabdesk-small-header;
+    @include tabdesk-logo;
   }
 }
 

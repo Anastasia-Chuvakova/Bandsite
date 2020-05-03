@@ -4,72 +4,160 @@
 
 .comments__section {
   display: flex;
+  flex-direction: column;
+  position: relative;
+  margin: 32px 16px 0 16px;
   @include tablet-breakpoint {
     margin: 0 24px 0 24px;
   }
   @include desktop-breakpoint {
     margin: 0 130px 0 130px;
   }
+}
+.comments__title {
+  display: flex;
+  position: relative;
+  color: $black;
+  width: auto;
+  margin-bottom: 40px;
 
-  .comments__title {
-    display: flex;
-    color: $black;
-    width: auto;
-    @include tablet-breakpoint {
-      @include tabdesk-small-header;
+  @include tablet-breakpoint {
+    @include tabdesk-small-header;
+    margin: 0;
+  }
+}
+
+.comments__table {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 288px;
+  margin: 0 auto;
+
+  @include tablet-breakpoint {
+    margin: 56px auto 40px auto;
+    width: 100%;
+    @include desktop-breakpoint {
+      width: 728px;
+      //margin: 0 100px 30px 100px;
     }
+    //520px;
+  }
+}
+
+.enter__table {
+  display: flex;
+  flex-direction: row;
+  width: auto;
+
+  @include tablet-breakpoint {
+    align-items: flex-start;
+    margin: 0 90px 30px 90px;
+  }
+}
+.comments-form {
+  margin: 0, 16px, 0, 16px;
+  width: 100%;
+
+  list-style: none;
+  text-decoration: none;
+  &__name {
+    width: calc(100% - 32px);
+    margin-bottom: 24px;
+    border: 1px solid $silver;
+    border-radius: 0.3rem;
+    padding: 16px;
+  }
+  &__text {
+    width: calc(100% - 32px);
+    border: 1px solid $silver;
+    border-radius: 0.3rem;
+    padding: 16px;
   }
 
-  .comments__table {
+  &__comment {
+    width: 100%;
+  }
+
+  & label {
+    display: block;
+  }
+
+  & #comments-form__submit {
+    float: right;
+    margin-top: 24px;
+    margin-bottom: 24px;
+  }
+}
+
+.comments-list {
+  padding: 0;
+  margin: 0 0 40px 0;
+  @include tablet-breakpoint {
+    margin: 0 90px;
+  }
+}
+
+.list-message {
+  position: relative;
+  border-top: 0.05rem solid $silver;
+  display: flex;
+  justify-content: space-between;
+
+  &:last-child {
+    border-bottom: 0.05rem solid $silver;
+  }
+}
+
+.a-profile {
+  &__avatar {
+    max-width: 35.8px;
+    margin: 24px 0 0 0px;
+  }
+
+  &__content {
     display: flex;
-    // flex-direction: column;
-    justify-content: center;
-    width: 50%;
-    margin: auto;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 100%;
+  }
 
-    .enter__table {
-      display: flex;
-      flex-direction: column;
-      width: 100%;
-      margin: 0;
-
-      .comments-form {
-        list-style: none;
-        text-decoration: none;
-        &__name {
-          margin-top: 2rem;
-          display: flex;
-          flex-direction: column;
-          @include desktop-breakpoint;
-        }
-        &__text {
-          padding: 0.625rem;
-        }
-
-        &__comment {
-          margin-left: 3rem;
-        }
-      }
-      .enter__table ul {
-        .comments-list {
-          list-style: none;
-        }
-      }
-      .comments-list {
-        list-style: none;
-      }
-      .list-message li {
-        list-style: none;
-        text-decoration: none;
-      }
+  &__info {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    h3 {
+      margin: 24px 0 0 16px;
+      @include tabdesk-subheader;
+      font-size: 14px;
     }
-    .comments-list {
-      list-style: none;
+    time {
+      @include tabdesk-contacts;
+      color: $silver;
+      margin: 24px 0 0 16px;
+    }
+  }
+  &__comment {
+    p {
+      margin: 0 0 24px 16px;
+      @include tabdesk-contacts;
     }
   }
 }
 
-.default__comment {
-  width: auto;
-  margin: 0;
+.user-icon__box {
+  width: 48px;
+  @include tablet-breakpoint {
+    margin-right: 28px;
+  }
+}
+
+.label-text {
+  text-transform: uppercase;
+  @include labels;
+  color: $silver;
+}
+.comments-form__name,
+.comments-form__text {
+  @include tabdesk-contacts;
 }

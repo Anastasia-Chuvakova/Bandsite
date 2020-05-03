@@ -63,38 +63,57 @@ function comments(data) {
 
   let commentsForm = document.getElementById("comments-form");
 
-  commentsForm.addEventListener("submit", handleFormComment);
+  commentsForm.addEventListener("submit", displayComment);
 
   enterTable.appendChild(commentsForm);
 
+  let contentTable = document.createElement("div");
+  contentTable.classList.add("content-table");
+  commentsTable.appendChild(contentTable);
+
   let commentsList = document.createElement("ul");
   commentsList.classList.add("comments-list");
-  commentsTable.appendChild(commentsList);
+  contentTable.appendChild(commentsList);
 
   for (i = 1; i < data.length; i++) {
     let listsTag = document.createElement("li");
     listsTag.classList.add("list-message");
     commentsList.appendChild(listsTag);
 
-    //let image = data[i].image;
+    let commentAvatar = document.createElement("div");
+    commentAvatar.classList.add("a-profile__avatar");
+    listsTag.appendChild(commentAvatar);
+
     let imageTag = document.createElement("img");
     imageTag.setAttribute("src", "./assets/icons/usericon-grey.png");
-    listsTag.appendChild(imageTag);
+    commentAvatar.appendChild(imageTag);
+
+    let profileContent = document.createElement("div");
+    profileContent.classList.add("a-profile__content");
+    listsTag.appendChild(profileContent);
+
+    let profileInfo = document.createElement("div");
+    profileInfo.classList.add("a-profile__info");
+    profileContent.appendChild(profileInfo);
 
     let name = data[i].name;
     let nameTag = document.createElement("h3");
     nameTag.textContent = name;
-    listsTag.appendChild(nameTag);
+    profileInfo.appendChild(nameTag);
 
     let date = data[i].date;
     let dateTag = document.createElement("time");
     dateTag.textContent = formattedDate(data[i].date);
-    listsTag.appendChild(dateTag);
+    profileInfo.appendChild(dateTag);
+
+    let profileComment = document.createElement("div");
+    profileComment.classList.add("a-profile__comment");
+    profileContent.appendChild(profileComment);
 
     let comment = data[i].comment;
     let commentTag = document.createElement("p");
     commentTag.textContent = comment;
-    listsTag.appendChild(commentTag);
+    profileComment.appendChild(commentTag);
   }
 }
 
@@ -121,18 +140,76 @@ function formattedDate(date) {
   return formattedDate;
 }
 
-function handleFormComment(event) {
+function displayComment(event) {
   event.preventDefault();
+
+  let commentsForm = document.getElementById("comments-form");
 
   var commentsNameVal = event.target.commentsName.value;
   var commentsTextVal = event.target.commentsText.value;
 
-  info.push({
-    id: info.length + 1,
-    name: commentsNameVal,
-    date: new Date(),
-    comment: commentsTextVal,
-  });
+  if (commentsNameVal !== "" && commentsTextVal !== "") {
+    info.push({
+      id: info.length + 1,
+      name: commentsNameVal,
+      date: new Date(),
+      comment: commentsTextVal,
+    });
+    commentsForm.reset();
+
+    //ListComments(dateSortArray(info));
+    console.log(dateSortArray(info));
+
+    let commentsList = document.querySelector(".comments-list");
+
+    let listsTag = document.createElement("li");
+    listsTag.classList.add("list-message");
+    commentsList.appendChild(listsTag);
+
+    let commentAvatar = document.createElement("div");
+    commentAvatar.classList.add("a-profile__avatar");
+    listsTag.appendChild(commentAvatar);
+
+    let imageTag = document.createElement("img");
+    imageTag.setAttribute("src", "./assets/icons/usericon-grey.png");
+    commentAvatar.appendChild(imageTag);
+
+    let profileContent = document.createElement("div");
+    profileContent.classList.add("a-profile__content");
+    listsTag.appendChild(profileContent);
+
+    let profileInfo = document.createElement("div");
+    profileInfo.classList.add("a-profile__info");
+    profileContent.appendChild(profileInfo);
+
+    let name = info[info.length - 1].name;
+    let nameTag = document.createElement("h3");
+    nameTag.textContent = name;
+    profileInfo.appendChild(nameTag);
+
+    let date = info[info.length - 1].date;
+    let dateTag = document.createElement("time");
+    dateTag.textContent = formattedDate(info[info.length - 1].date);
+    profileInfo.appendChild(dateTag);
+
+    let profileComment = document.createElement("div");
+    profileComment.classList.add("a-profile__comment");
+    profileContent.appendChild(profileComment);
+
+    let comment = info[info.length - 1].comment;
+    let commentTag = document.createElement("p");
+    commentTag.textContent = comment;
+    profileComment.appendChild(commentTag);
+
+    commentsList.insertBefore(listsTag, commentsList.firstChild);
+  } else {
+    alert("Please add a name and comment");
+  }
+}
+
+function dateSortArray(arr) {
+  const sortedArray = arr.slice().sort((a, b) => b.date - a.date);
+  return sortedArray;
 
   let commentsList = document.querySelector(".comments-list");
 
@@ -141,6 +218,7 @@ function handleFormComment(event) {
   commentsList.appendChild(listsTag);
 
   let imageTag = document.createElement("img");
+  //ImageTag.classList.add("user-icon__anon");
   imageTag.setAttribute("src", "./assets/icons/usericon-grey.png");
   listsTag.appendChild(imageTag);
 
@@ -159,5 +237,8 @@ function handleFormComment(event) {
   commentTag.textContent = comment;
   listsTag.appendChild(commentTag);
 }
-
 comments(info);
+
+// function ListComments(commentsArray) {
+//   commentsForm.innerHTML = "";
+// }

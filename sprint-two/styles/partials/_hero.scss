@@ -40,66 +40,104 @@
   }
 }
 
-// Show page
-.show-hero__section {
-  background-image: url(/assets/images/showbackground.jfif);
+////////////////////////////////////////////////////////////////////////////////// Show page
+////////////////////////////////////////////////
+//////////////////////////////////
 
-  height: 183px;
-  width: 100%;
+.show-hero__section {
+  margin: 0;
+
   background-size: cover;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  //justify-content: center;
+
+  padding-bottom: 64px;
+
   @include tablet-breakpoint {
-    height: 400px;
+    height: 670px;
+    padding-bottom: 0;
+    width: 100%;
   }
   @include desktop-breakpoint {
     height: 670px;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
   }
 }
 
 .hero-iframe {
   display: flex;
+  width: 100%;
+
+  iframe {
+    margin: 0 8px;
+
+    width: 100%;
+    @include tablet-breakpoint {
+      margin-left: 24px;
+      height: 146px;
+      width: 436px;
+    }
+  }
+  @include desktop-breakpoint {
+    margin-top: 77px;
+  }
 }
 .show-hero__text {
   display: flex;
   flex-direction: column;
+  margin: 0;
+  justify-content: center;
 }
 
 .show-title {
+  padding: 0;
   color: $white;
   display: flex;
   align-items: center;
-  margin-top: 32px;
+  margin-top: 64px;
   margin-bottom: 24px;
   margin-left: 16px;
   margin-right: 16px;
-  @include mobile-paragraph;
+  @include mobile-contacts;
   @include tablet-breakpoint {
     @include tabdesk-small-header;
     text-align: left;
-    margin-right: 30%;
+    margin-right: 24px;
+    margin-top: 96px;
+    margin-left: 24px;
   }
   @include desktop-breakpoint {
-    margin-left: 180px;
-    margin-right: 50%;
+    margin: 160px 0 48px 180px;
   }
 }
 .show-hero__theme {
-  width: 100%;
-  margin: 0;
+  padding: 0;
   color: $white;
-  @include mobile-paragraph;
+  display: flex;
+  align-items: center;
+  margin-top: 0;
+  margin-bottom: 34px;
+  margin-left: 16px;
+  margin-right: 16px;
+  @include tabdesk-hero-header;
+  font-size: 36px;
   @include tablet-breakpoint {
-    width: 100%;
-    justify-content: space-evenly;
-    @include tabdesk-header;
+    @include tabdesk-hero-header;
+    text-align: left;
+    margin-right: 20%;
+    margin-bottom: 8%;
+    margin-left: 24px;
   }
   @include desktop-breakpoint {
-    justify-content: flex-start;
+    margin-left: 180px;
+    margin-bottom: 180px;
+    margin-top: 0;
+    margin-right: 5%;
   }
+}
+.show-hero__section {
+  background-image: url(../assets/images/showbackground.jfif);
 }

@@ -15,7 +15,7 @@
       
           <li class="main-nav__items link-bio"><a class="active" href="#">Biography</a></li>
     
-        <li class="main-nav__items link-show"><a href="pages/shows.html">Shows</a></li>
+        <li class="main-nav__items link-show"><a  href="pages/shows.html">Shows</a></li>
       </ul>
       </nav>
     </div>
@@ -57,22 +57,22 @@
     </div>
   </section>
   <section class="comments__section">
-    <!-- <div class="user-icon__main"><img src="assets/icons/userico.png" alt="user icon"></div> -->
+    
     <form id="comments-form" class="comments-form">
+      <label class="label-text">name</label>
       <input
         type="text"
         id="comments-name__input"
         class="comments-form__name"
-        placeholder="Your Name"
+        placeholder="Mohan Muruge"
         name="commentsName"/>  
-        <input
-        type="text"
+        <label class="label-text">comment</label>
+        <textarea
         id="comments-text__input"
         class="comments-form__text"
-        placeholder="Type Here"
-        name="commentsText"/>                  
-<!--         
-      <textarea name="text" class="comments-form__text" placeholder="Type Here"></textarea> -->
+        placeholder="Add a new comment"
+        name="commentsText"
+        rows="3"></textarea>                  
       <button id="comments-form__submit" type="submit" class="comments-form__comment">comment</button>
    </form>
   </section>
