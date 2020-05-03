@@ -67,7 +67,6 @@ function showTable(data) {
   let headerTag = document.createElement("h2");
   headerTag.textContent = header;
   showTitle.appendChild(headerTag);
-  //console.log(headerTag);
 
   let showTable = document.createElement("div");
   showTable.classList.add("shows__table");
@@ -76,7 +75,6 @@ function showTable(data) {
   let paramTable = document.createElement("div");
   paramTable.classList.add("params");
   showTable.appendChild(paramTable);
-  //console.log(paramTable);
 
   let param1 = data[1].param1;
   let paramTag = document.createElement("h2");

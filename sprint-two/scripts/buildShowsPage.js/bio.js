@@ -57,7 +57,6 @@ function comments(data) {
   enterTable.appendChild(userIconBox);
 
   let userIconMain = document.createElement("img");
-  // let userIconMain.classList.add("user-icon__main");
   userIconMain.setAttribute("src", "./assets/icons/userico.png");
   userIconBox.appendChild(userIconMain);
 
@@ -157,7 +156,6 @@ function displayComment(event) {
     });
     commentsForm.reset();
 
-    //ListComments(dateSortArray(info));
     console.log(dateSortArray(info));
 
     let commentsList = document.querySelector(".comments-list");
@@ -218,7 +216,6 @@ function dateSortArray(arr) {
   commentsList.appendChild(listsTag);
 
   let imageTag = document.createElement("img");
-  //ImageTag.classList.add("user-icon__anon");
   imageTag.setAttribute("src", "./assets/icons/usericon-grey.png");
   listsTag.appendChild(imageTag);
 
@@ -238,7 +235,3 @@ function dateSortArray(arr) {
   listsTag.appendChild(commentTag);
 }
 comments(info);
-
-// function ListComments(commentsArray) {
-//   commentsForm.innerHTML = "";
-// }

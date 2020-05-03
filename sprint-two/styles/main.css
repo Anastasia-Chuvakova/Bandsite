@@ -778,21 +778,6 @@ img {
   }
 }
 
-@font-face {
-  font-family: "Avenir Next Regular";
-  src: url("../assets/fonts/Linotype%20-%20AvenirNextLTPro-Regular.otf");
-}
-
-@font-face {
-  font-family: "Avenir Next Demi Bold";
-  src: url("../assets/fonts/Linotype%20-%20AvenirNextLTPro-Demi.otf");
-}
-
-@font-face {
-  font-family: "Avenir Next Bold";
-  src: url("../assets/fonts/Linotype%20-%20AvenirNextLTPro-Bold.otf");
-}
-
 .footer__wrapper {
   background-color: #323232;
   color: white;
