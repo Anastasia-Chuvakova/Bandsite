@@ -1,0 +1,197 @@
+* {
+  h2 {
+    margin: 0;
+  }
+}
+.shows__section {
+  margin: 32px 16px;
+  display: flex;
+  flex-direction: column;
+  @include tablet-breakpoint {
+    margin: 24px;
+  }
+  @include desktop-breakpoint {
+    margin: 48px 180px 0 180px;
+  }
+}
+.shows__title {
+  @include tabdesk-small-header;
+  @include tablet-breakpoint {
+    padding: 0;
+  }
+}
+.shows__table {
+  display: flex;
+  display: flex;
+  flex-direction: column;
+  @include tablet-breakpoint {
+    flex-direction: column;
+  }
+  @include desktop-breakpoint {
+    margin: 32px 0 32px 274px;
+  }
+}
+.params {
+  display: none;
+  @include tablet-breakpoint {
+    display: flex;
+    justify-content: flex-start;
+    text-transform: uppercase;
+    @include labels;
+    font-size: 8px;
+    color: $silver;
+    margin-top: 24px;
+  }
+  @include desktop-breakpoint {
+    max-width: 804px;
+  }
+
+  & > h2 {
+    width: 25%;
+    padding: 0;
+  }
+}
+
+.show-info__wrapper {
+  display: flex;
+  flex-direction: column;
+
+  padding: 0;
+  text-align: left;
+  @include tablet-breakpoint {
+    margin-top: 0;
+  }
+  @include desktop-breakpoint {
+    max-width: 804px;
+  }
+}
+
+.show-info {
+  &__list {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 0.05rem solid $silver;
+    margin-top: 16px;
+
+    @include tablet-breakpoint {
+      margin-top: 0;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+
+      padding: 16px 0 16px 0;
+    }
+    & > div {
+      @include tablet-breakpoint {
+        width: 25%;
+      }
+      @include desktop-breakpoint {
+        width: 25%;
+      }
+      & h2 {
+        padding: 0;
+      }
+    }
+  }
+
+  &__date {
+    display: flex;
+    justify-content: left;
+    position: relative;
+    padding-top: 30px;
+    padding-bottom: 24px;
+    @include mobile-subheader;
+
+    &::before {
+      display: block;
+      content: "DATE";
+      position: absolute;
+      top: 0px;
+      bottom: 16px;
+      @include labels;
+      color: $silver;
+    }
+    @include tablet-breakpoint {
+      @include mobile-contacts;
+      font-size: 11px;
+      &::before {
+        display: none;
+      }
+    }
+    @include desktop-breakpoint {
+      @include tabdesk-contacts;
+      &::before {
+        display: none;
+      }
+    }
+  }
+
+  &__venue {
+    display: flex;
+    text-align: left;
+    @include labels;
+    font-size: 11px;
+    position: relative;
+    padding-top: 30px;
+    padding-bottom: 24px;
+    &::before {
+      display: block;
+      content: "VENUE";
+      position: absolute;
+      top: 0;
+      bottom: 16px;
+      @include labels;
+      color: $silver;
+    }
+    @include tablet-breakpoint {
+      &::before {
+        display: none;
+      }
+    }
+  }
+
+  &__location {
+    display: flex;
+    justify-content: left;
+    @include labels;
+    font-size: 11px;
+    position: relative;
+    padding-top: 30px;
+    padding-bottom: 24px;
+    &::before {
+      display: block;
+      content: "LOCATION";
+      position: absolute;
+      top: 0;
+      bottom: 16px;
+      @include labels;
+      color: $silver;
+    }
+    @include tablet-breakpoint {
+      &::before {
+        display: none;
+      }
+    }
+  }
+
+  &__button {
+    display: flex;
+    justify-content: flex-end;
+    margin: 0;
+  }
+}
+.buy-btn,
+#comments-form__submit {
+  width: 100%;
+  height: 48px;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+  color: $white;
+  background-color: $black;
+  border-radius: 0.5rem;
+  @include tabdesk-contacts;
+  @include tablet-breakpoint {
+    width: 160px;
+    margin-bottom: 0;
+  }
+}

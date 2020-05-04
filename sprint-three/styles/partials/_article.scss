@@ -1,0 +1,125 @@
+@import "_fonts";
+@import "_globalVariables";
+@import "_mixins";
+
+// MAIN ARTICLE SECTION
+
+.article-section__wrapper {
+  margin-left: 16px;
+  margin-right: 16px;
+  max-width: 100%;
+  @include tablet-breakpoint {
+    margin: 0 24px 0 24px;
+  }
+  @include desktop-breakpoint {
+    margin: 48px 180px 48px 180px;
+    display: flex;
+    flex-direction: column;
+  }
+}
+.article-section__title {
+  @include mobile-header;
+  text-align: left;
+  margin-top: 32px;
+  margin-bottom: 24px;
+  @include tablet-breakpoint {
+    @include tabdesk-header;
+  }
+  @include desktop-breakpoint {
+    margin: 0 0 48px 0;
+  }
+}
+
+.article-section {
+  @include tablet-breakpoint {
+  }
+  @include desktop-breakpoint {
+    margin: 0 80px 0 80px;
+  }
+}
+
+.article-section__img {
+  img {
+    width: 100%;
+    margin: 0;
+    text-align: center;
+
+    @include tablet-breakpoint {
+      object-fit: cover;
+    }
+    @include desktop-breakpoint {
+      display: flex;
+    }
+  }
+}
+
+.article-text {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  margin: 0;
+  @include mobile-paragraph;
+  color: $black;
+  @include tablet-breakpoint {
+    @include tabdesk-small-header;
+    font-size: 20px;
+  }
+
+  .article-quotation h3 {
+    @include tablet-breakpoint {
+      @include font-bold;
+      font-size: 24px;
+      line-height: 32px;
+    }
+    @include desktop-breakpoint {
+      padding-top: 48px;
+      margin: 0;
+    }
+  }
+
+  .quotation-author h3 {
+    @include tabdesk-comments;
+    @include desktop-breakpoint {
+      padding: 40px 0 56px 0;
+      margin: 0;
+    }
+  }
+  .article-name h3 {
+    margin-bottom: 24px;
+    @include tablet-breakpoint {
+      @include font-bold;
+      font-size: 24px;
+      line-height: 32px;
+    }
+    @include desktop-breakpoint {
+      margin: 0;
+      padding-bottom: 32px;
+      @include font-bold;
+      font-size: 24px;
+      line-height: 32px;
+    }
+  }
+}
+.article-text__wrapper {
+  margin: 0;
+  @include labels;
+  color: $black;
+  @include tablet-breakpoint {
+    display: flex;
+  }
+}
+
+.about-band {
+  margin-bottom: 24px;
+  margin-top: 0;
+  @include tablet-breakpoint {
+    margin: 0 12px 0 0;
+  }
+}
+.about-band2 {
+  margin-bottom: 40px;
+  @include tablet-breakpoint {
+    margin: 0 0 0 12px;
+  }
+}
