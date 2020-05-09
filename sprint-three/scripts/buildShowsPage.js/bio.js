@@ -1,34 +1,52 @@
-var info = [
-  {
-    id: 1,
-    title: "Join the Conversation",
-  },
+// var info = [
+//   {
+//     id: 1,
+//     title: "Join the Conversation",
+//   },
 
-  {
-    id: 2,
-    // image: "icon",
-    name: "Micheal Lyons",
-    date: new Date("2018-12-18"),
-    comment:
-      "They BLEW the ROOF off at their last show, once everyone started figuring out they were going. This is still simply the greatest opening of a concert I have EVER witnessed.",
-  },
-  {
-    id: 3,
-    // image: "insert icon",
-    name: "Gary Wong",
-    date: new Date("2018-12-12"),
-    comment:
-      "Every time I see him shred I feel so motivated to get off my couch and hop on my board. He’s so talented! I wish I can ride like him one day so I can really enjoy myself!",
-  },
-  {
-    id: 4,
-    // image: "image",
-    name: "Theodore Duncan",
-    date: new Date("2018-11-15"),
-    comment:
-      "How can someone be so good!!! You can tell he lives for this and loves to do it every day. Everytime I see him I feel instantly happy! He’s definitely my favorite ever!",
-  },
-];
+//   {
+//     id: 2,
+//     // image: "icon",
+//     name: "Micheal Lyons",
+//     date: new Date("2018-12-18"),
+//     comment:
+//       "They BLEW the ROOF off at their last show, once everyone started figuring out they were going. This is still simply the greatest opening of a concert I have EVER witnessed.",
+//   },
+//   {
+//     id: 3,
+//     // image: "insert icon",
+//     name: "Gary Wong",
+//     date: new Date("2018-12-12"),
+//     comment:
+//       "Every time I see him shred I feel so motivated to get off my couch and hop on my board. He’s so talented! I wish I can ride like him one day so I can really enjoy myself!",
+//   },
+//   {
+//     id: 4,
+//     // image: "image",
+//     name: "Theodore Duncan",
+//     date: new Date("2018-11-15"),
+//     comment:
+//       "How can someone be so good!!! You can tell he lives for this and loves to do it every day. Everytime I see him I feel instantly happy! He’s definitely my favorite ever!",
+//   },
+// ];
+var info;
+
+const promise = axios.get(
+  "https://project-1-api.herokuapp.com/comments?api_key=anastasia"
+);
+
+promise
+  .then((response) => {
+    //console.log(response);
+    info = response.data;
+    info.sort(dateSortArray);
+    console.log(info);
+
+    comments(response.data);
+  })
+  .catch((err) => {
+    console.log("Error: ", err);
+  });
 
 function comments(data) {
   let commentsSection = document.querySelector(".comments__section");
@@ -74,7 +92,7 @@ function comments(data) {
   commentsList.classList.add("comments-list");
   contentTable.appendChild(commentsList);
 
-  for (i = 1; i < data.length; i++) {
+  for (i = 0; i < data.length; i++) {
     let listsTag = document.createElement("li");
     listsTag.classList.add("list-message");
     commentsList.appendChild(listsTag);
@@ -100,9 +118,12 @@ function comments(data) {
     nameTag.textContent = name;
     profileInfo.appendChild(nameTag);
 
-    let date = data[i].date;
+    let date = data[i].timestamp;
     let dateTag = document.createElement("time");
-    dateTag.textContent = formattedDate(data[i].date);
+    date = new Date(date);
+
+    dateTag.textContent = formattedDate(date);
+    //dateTag.textContent = data[i].date;
     profileInfo.appendChild(dateTag);
 
     let profileComment = document.createElement("div");
@@ -156,7 +177,9 @@ function displayComment(event) {
     });
     commentsForm.reset();
 
-    console.log(dateSortArray(info));
+    // console.log("before: ", info);
+    // info = dateSortArray(info);
+    // console.log("after ", info);
 
     let commentsList = document.querySelector(".comments-list");
 
@@ -200,38 +223,46 @@ function displayComment(event) {
     profileComment.appendChild(commentTag);
 
     commentsList.insertBefore(listsTag, commentsList.firstChild);
+
+    axios({
+      method: "post",
+      url: "https://project-1-api.herokuapp.com/comments?api_key=anastasia",
+      data: {
+        comment: info[info.length - 1].comment,
+        name: info[info.length - 1].name,
+      },
+    });
   } else {
     alert("Please add a name and comment");
   }
 }
 
-function dateSortArray(arr) {
-  const sortedArray = arr.slice().sort((a, b) => b.date - a.date);
-  return sortedArray;
+function dateSortArray(a, b) {
+  return new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime();
 
-  let commentsList = document.querySelector(".comments-list");
+  // let commentsList = document.querySelector(".comments-list");
 
-  let listsTag = document.createElement("li");
-  listsTag.classList.add("list-message");
-  commentsList.appendChild(listsTag);
+  // let listsTag = document.createElement("li");
+  // listsTag.classList.add("list-message");
+  // commentsList.appendChild(listsTag);
 
-  let imageTag = document.createElement("img");
-  imageTag.setAttribute("src", "./assets/icons/usericon-grey.png");
-  listsTag.appendChild(imageTag);
+  // let imageTag = document.createElement("img");
+  // imageTag.setAttribute("src", "./assets/icons/usericon-grey.png");
+  // listsTag.appendChild(imageTag);
 
-  let name = info[info.length - 1].name;
-  let nameTag = document.createElement("h3");
-  nameTag.textContent = name;
-  listsTag.appendChild(nameTag);
+  // let name = info[info.length - 1].name;
+  // let nameTag = document.createElement("h3");
+  // nameTag.textContent = name;
+  // listsTag.appendChild(nameTag);
 
-  let date = info[info.length - 1].date;
-  let dateTag = document.createElement("time");
-  dateTag.textContent = formattedDate(info[info.length - 1].date);
-  listsTag.appendChild(dateTag);
+  // let date = info[info.length - 1].date;
+  // let dateTag = document.createElement("time");
+  // dateTag.textContent = formattedDate(info[info.length - 1].date);
+  // listsTag.appendChild(dateTag);
 
-  let comment = info[info.length - 1].comment;
-  let commentTag = document.createElement("p");
-  commentTag.textContent = comment;
-  listsTag.appendChild(commentTag);
+  // let comment = info[info.length - 1].comment;
+  // let commentTag = document.createElement("p");
+  // commentTag.textContent = comment;
+  // listsTag.appendChild(commentTag);
 }
-comments(info);
+//comments(info);
