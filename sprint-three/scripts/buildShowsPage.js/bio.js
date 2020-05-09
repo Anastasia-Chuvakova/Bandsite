@@ -1,60 +1,32 @@
-// var info = [
-//   {
-//     id: 1,
-//     title: "Join the Conversation",
-//   },
+let info;
 
-//   {
-//     id: 2,
-//     // image: "icon",
-//     name: "Micheal Lyons",
-//     date: new Date("2018-12-18"),
-//     comment:
-//       "They BLEW the ROOF off at their last show, once everyone started figuring out they were going. This is still simply the greatest opening of a concert I have EVER witnessed.",
-//   },
-//   {
-//     id: 3,
-//     // image: "insert icon",
-//     name: "Gary Wong",
-//     date: new Date("2018-12-12"),
-//     comment:
-//       "Every time I see him shred I feel so motivated to get off my couch and hop on my board. He’s so talented! I wish I can ride like him one day so I can really enjoy myself!",
-//   },
-//   {
-//     id: 4,
-//     // image: "image",
-//     name: "Theodore Duncan",
-//     date: new Date("2018-11-15"),
-//     comment:
-//       "How can someone be so good!!! You can tell he lives for this and loves to do it every day. Everytime I see him I feel instantly happy! He’s definitely my favorite ever!",
-//   },
-// ];
-var info;
-
+//get comments object from api
 const promise = axios.get(
   "https://project-1-api.herokuapp.com/comments?api_key=anastasia"
 );
 
 promise
   .then((response) => {
-    //console.log(response);
     info = response.data;
-    info.sort(dateSortArray);
-    console.log(info);
 
+    //sort object by date value newest to oldest
+    info.sort(dateSortArray);
+
+    //display comments
     comments(response.data);
   })
   .catch((err) => {
     console.log("Error: ", err);
   });
 
+//Takes comment json object and displays in comment section
 function comments(data) {
+  //create non repeated html for comment section
   let commentsSection = document.querySelector(".comments__section");
 
   let commentHeader = document.createElement("div");
   commentHeader.classList.add("comments__title");
   commentsSection.appendChild(commentHeader);
-  console.log(commentHeader);
 
   let title = data[0].title;
   let titleTag = document.createElement("h2");
@@ -63,7 +35,6 @@ function comments(data) {
 
   let commentsTable = document.createElement("div");
   commentsTable.classList.add("comments__table");
-  console.log(commentsTable);
   commentsSection.appendChild(commentsTable);
 
   let enterTable = document.createElement("div");
@@ -92,6 +63,7 @@ function comments(data) {
   commentsList.classList.add("comments-list");
   contentTable.appendChild(commentsList);
 
+  //loop through all comment objects and create new comment html
   for (i = 0; i < data.length; i++) {
     let listsTag = document.createElement("li");
     listsTag.classList.add("list-message");
@@ -123,7 +95,6 @@ function comments(data) {
     date = new Date(date);
 
     dateTag.textContent = formattedDate(date);
-    //dateTag.textContent = data[i].date;
     profileInfo.appendChild(dateTag);
 
     let profileComment = document.createElement("div");
@@ -137,6 +108,7 @@ function comments(data) {
   }
 }
 
+//takes timestamp and converts into formatted date ie: Mon, Jan, 2020
 function formattedDate(date) {
   const daysOfWeek = ["Sun", "Mon", "Tues", "Wed", "Thur", "Fri", "Sat"];
   const months = [
@@ -160,6 +132,7 @@ function formattedDate(date) {
   return formattedDate;
 }
 
+//on comment form submit, take form date and post back to api and create html for new comment data
 function displayComment(event) {
   event.preventDefault();
 
@@ -168,6 +141,7 @@ function displayComment(event) {
   var commentsNameVal = event.target.commentsName.value;
   var commentsTextVal = event.target.commentsText.value;
 
+  //check for empty fields and push to info object
   if (commentsNameVal !== "" && commentsTextVal !== "") {
     info.push({
       id: info.length + 1,
@@ -177,10 +151,7 @@ function displayComment(event) {
     });
     commentsForm.reset();
 
-    // console.log("before: ", info);
-    // info = dateSortArray(info);
-    // console.log("after ", info);
-
+    //create new comment html
     let commentsList = document.querySelector(".comments-list");
 
     let listsTag = document.createElement("li");
@@ -224,6 +195,7 @@ function displayComment(event) {
 
     commentsList.insertBefore(listsTag, commentsList.firstChild);
 
+    //post new comment object to the api
     axios({
       method: "post",
       url: "https://project-1-api.herokuapp.com/comments?api_key=anastasia",
@@ -237,32 +209,7 @@ function displayComment(event) {
   }
 }
 
+//sorts array by timestamp values, newest to oldest
 function dateSortArray(a, b) {
   return new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime();
-
-  // let commentsList = document.querySelector(".comments-list");
-
-  // let listsTag = document.createElement("li");
-  // listsTag.classList.add("list-message");
-  // commentsList.appendChild(listsTag);
-
-  // let imageTag = document.createElement("img");
-  // imageTag.setAttribute("src", "./assets/icons/usericon-grey.png");
-  // listsTag.appendChild(imageTag);
-
-  // let name = info[info.length - 1].name;
-  // let nameTag = document.createElement("h3");
-  // nameTag.textContent = name;
-  // listsTag.appendChild(nameTag);
-
-  // let date = info[info.length - 1].date;
-  // let dateTag = document.createElement("time");
-  // dateTag.textContent = formattedDate(info[info.length - 1].date);
-  // listsTag.appendChild(dateTag);
-
-  // let comment = info[info.length - 1].comment;
-  // let commentTag = document.createElement("p");
-  // commentTag.textContent = comment;
-  // listsTag.appendChild(commentTag);
 }
-//comments(info);

@@ -21,6 +21,7 @@
   @include mobile-header;
   margin: 32px 16px 24px 16px;
   padding-top: 32px;
+  color: $black;
   @include tablet-breakpoint {
     @include tabdesk-header;
   }

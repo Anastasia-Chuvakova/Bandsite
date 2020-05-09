@@ -1,90 +1,24 @@
-// var concerts = [
-
-//   {
-//     id: 1,
-//     header: "Shows",
-//   },
-//   {
-//     id: 2,
-//     param1: "dates",
-//     param2: "venue",
-//     param3: "location",
-//   },
-
-//   {
-//     id: 3,
-
-//     date: " Mon Dec 17 2018",
-//     venue: "Ronald Lane",
-//     location: "San Francisco, CA",
-//     button: "buy tickets",
-//   },
-//   {
-//     id: 4,
-//     date: " Tue Jul 18 2018",
-//     venue: "Pier 3 East",
-//     location: "San Francisco, CA",
-//     button: "buy tickets",
-//   },
-//   {
-//     id: 5,
-//     date: "  Fri Jul 22 2019",
-//     venue: "View Loungue",
-//     location: "San Francisco, CA",
-//     button: "buy tickets",
-//   },
-//   {
-//     id: 6,
-//     date: "Sat Aug 12 2019",
-//     venue: "Hyatt Agency",
-//     location: "San Francisco, CA",
-//     button: "buy tickets",
-//   },
-//   {
-//     id: 7,
-//     date: "  Fri Sep 05 2019",
-//     venue: "Moscow Center",
-//     location: "San Francisco, CA",
-//     button: "buy tickets",
-//   },
-//   {
-//     id: 8,
-//     date: " Wed Aug 11 2019",
-//     venue: "Pres Club",
-//     location: "San Francisco, CA",
-//     button: "buy tickets",
-//   },
-// ];
-
+//make get request for show dates
 const promise = axios.get(
   "https://project-1-api.herokuapp.com/showdates?api_key=anastasia"
 );
-//const showsUL = document.querySelector(".shows");
+
 promise
   .then((response) => {
-    console.log(response);
-    // let output = "";
-    // response.data.forEach((show, index) => {
-    //   output =
-    //     output +
-    //     `<li class="show__list-item">${index + 1} ${show.place} ${
-    //       show.date
-    //     }</li>`;
-    // });
-    // showsUL.innerHTML = output;
     showTable(response.data);
   })
   .catch((err) => {
     console.log("Error: ", err);
   });
 
+//processes show table objects and displays them in the show table section
 function showTable(data) {
+  //create static html for showtable section
   let showsSection = document.querySelector(".shows__section");
 
   let showTitle = document.createElement("div");
   showTitle.classList.add("shows__title");
   showsSection.appendChild(showTitle);
-  console.log(showTitle);
 
   let header = "shows";
   let headerTag = document.createElement("h2");
@@ -118,6 +52,7 @@ function showTable(data) {
   showInfoWrapper.classList.add("show-info__wrapper");
   showTable.appendChild(showInfoWrapper);
 
+  //loop through all of the show table objects and create new html elements
   for (i = 2; i < data.length; i++) {
     let showInfoLi = document.createElement("li");
     showInfoLi.classList.add("show-info__list");
@@ -160,5 +95,3 @@ function showTable(data) {
     showInfoButton.appendChild(buttonTag);
   }
 }
-
-//showTable(concerts);

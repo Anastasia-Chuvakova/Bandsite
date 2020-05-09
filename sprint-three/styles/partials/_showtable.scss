@@ -13,8 +13,12 @@
   @include desktop-breakpoint {
     margin: 48px 180px 0 180px;
   }
+  & h2 {
+    color: $black;
+  }
 }
 .shows__title {
+  color: $black;
   @include tabdesk-small-header;
   @include tablet-breakpoint {
     padding: 0;
