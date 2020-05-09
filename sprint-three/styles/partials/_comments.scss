@@ -11,7 +11,7 @@
     margin: 0 24px 0 24px;
   }
   @include desktop-breakpoint {
-    margin: 0 130px 0 130px;
+    margin: 0 180px 0 180px;
   }
 }
 .comments__title {
@@ -20,10 +20,12 @@
   color: $black;
   width: auto;
   margin-bottom: 40px;
-
+  @include mobile-header;
   @include tablet-breakpoint {
-    @include tabdesk-small-header;
+    @include tabdesk-header;
     margin: 0;
+    @include desktop-breakpoint {
+    }
   }
 }
 

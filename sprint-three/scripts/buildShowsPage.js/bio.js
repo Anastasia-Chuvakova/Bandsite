@@ -26,6 +26,7 @@ function comments(data) {
 
   let commentHeader = document.createElement("div");
   commentHeader.classList.add("comments__title");
+  commentHeader.textContent = "Join the Conversation";
   commentsSection.appendChild(commentHeader);
 
   let title = data[0].title;

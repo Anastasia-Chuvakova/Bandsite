@@ -291,7 +291,7 @@ img {
   margin-right: 16px;
   font-size: 24px;
   line-height: 32px;
-  font-family: "Avenir Next Regular";
+  font-family: "Avenir Next Bold";
 }
 
 @media screen and (min-width: 768px) {
@@ -516,7 +516,7 @@ img {
 .article-section__title {
   font-size: 24px;
   line-height: 32px;
-  font-family: "Avenir Next Regular";
+  font-family: "Avenir Next Bold";
   text-align: left;
   margin-top: 32px;
   margin-bottom: 24px;
@@ -707,14 +707,14 @@ img {
 
 @media screen and (min-width: 1440px) {
   .gallery__wrapper {
-    padding: 0 130px 0 138px;
+    padding: 0 180px 48px 180px;
   }
 }
 
 .gallery-title {
   font-size: 24px;
   line-height: 32px;
-  font-family: "Avenir Next Regular";
+  font-family: "Avenir Next Bold";
   margin: 32px 16px 24px 16px;
   padding-top: 32px;
   color: #323232;
@@ -868,7 +868,7 @@ img {
     display: flex;
     font-size: 24px;
     line-height: 32px;
-    font-family: "Avenir Next Regular";
+    font-family: "Avenir Next Bold";
     padding-right: 20%;
   }
 }
@@ -1065,7 +1065,7 @@ img {
 
 @media screen and (min-width: 1440px) {
   .comments__section {
-    margin: 0 130px 0 130px;
+    margin: 0 180px 0 180px;
   }
 }
 
@@ -1077,12 +1077,15 @@ img {
   color: #323232;
   width: auto;
   margin-bottom: 40px;
+  font-size: 24px;
+  line-height: 32px;
+  font-family: "Avenir Next Bold";
 }
 
 @media screen and (min-width: 768px) {
   .comments__title {
-    font-size: 24px;
-    line-height: 32px;
+    font-size: 36px;
+    line-height: 44px;
     font-family: "Avenir Next Bold";
     margin: 0;
   }
